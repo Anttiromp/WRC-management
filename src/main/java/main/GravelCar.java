@@ -8,7 +8,7 @@ public class GravelCar extends RallyCar {
 
     @Override
     public double calculatePerformance() {
-        // Keksitään tännekkin joku
+        // Keksitään tännekkin joku, pito otetaan ainakin yhdeksi tekijäksi
         return 0.0;
     }
 
