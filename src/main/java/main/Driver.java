@@ -4,11 +4,12 @@ public class Driver {
     private String name;
     private String country;
     private int totalPoints;
+    private RallyCar car;
 
-    public Driver(String name, String country, int totalPoints) {
+    public Driver(String name, String country, RallyCar car) {
         this.name = name;
         this.country = country;
-        this.totalPoints = totalPoints;
+        this.car = car;
     }
 
 
@@ -22,7 +23,6 @@ public class Driver {
         return this.totalPoints;
     }
 
-        // I think it's valid argument to have setters for all of the values, because a driver can change his/her name, points and country
     public void setName(String name) {
         this.name = name;
     } 
