@@ -12,6 +12,17 @@ public abstract class RallyCar {
         this.horsePower = horsePower;
     }
 
+    public String getMake() {
+        return this.make;
+    }
+
+    public String getModel() {
+        return this.model;
+    }
+
+    public int getHorsePower() {
+        return this.horsePower;
+    }
 
     abstract double calculatePerformance();
 
