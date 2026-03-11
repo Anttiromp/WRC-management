@@ -12,4 +12,11 @@ public class RallyRaceResult implements RaceResult {
         this.location = location;
     }
 
+    public String getRaceName() {
+        return this.raceName;
+    }
+    public String getLocation() {
+        return this.location;
+    }
+
 }
