@@ -6,5 +6,7 @@ public class App  {
         System.out.println( "Hello World!!" );
 
         // UML diagrammista katoppa mitä puuttuu
+
+        // Katoppa aiemmista esimerkeistä miten abstraktista luokasta sai metodit tuotua lapsiin
     }
 }
