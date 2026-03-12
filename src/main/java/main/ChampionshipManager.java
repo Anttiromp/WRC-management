@@ -9,4 +9,20 @@ public class ChampionshipManager {
     private static int totalDrivers;
     private static int totalRaces;
 
+
+    // Needs a constructor
+
+
+
+    public void registerDriver(Driver driver) {
+        drivers.add(driver);
+    }
+
+    public static int getTotalChampionshipPoints() {
+        // Täällä vaan haetaan for race : races -> rallyraceresults.getpoints
+        // Varmasti voidaan avaimella hakee ne kaikki tähän?
+        // Sit vaan järjestellään
+        return 1;
+    }
+
 }
