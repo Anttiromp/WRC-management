@@ -23,20 +23,32 @@ public class RallyRaceResult implements RaceResult {
     }
 
 
+    /**
+     * Metodi lisää sekä totaalipisteisiin että yksittäiseen kisaan pisteet
+     */
     @Override
     public void recordResult(Driver driver, int position, int points) {
         driver.addPoints(points);
-        
+        raceResults.put(driver, points);
     }
 
+    /**
+     * Tässä haetaan avaimella kuskia ja sit palautetaan ne pisteet mitä sil oli
+     * TODO muokkaa siten et jos ei löydy kuskia niin sit palautetaan DNF tai nolla
+     */
     @Override
     public int getDriverPoints(Driver driver) {
-        return 1;
+        return raceResults.get(driver);
     }
 
+    /**
+     * Tässä sortataan arvojen perusteella kuskit, ja pistetään parhausjärjestyksessä listaan
+     * Nice and easy
+     * sortedbykey.foreach(x -> do the thing)
+     */
     @Override
     public List<Driver> getResults() {
-        // Varmaan vaan joku yksinkertainen tulosta lista tjsp tähän
+        List<Driver> results = new ArrayList<>();
         return new ArrayList<>();
     }
 
