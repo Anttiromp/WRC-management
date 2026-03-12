@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Stream;
 
 public class RallyRaceResult implements RaceResult {
     private String raceName;
@@ -41,15 +42,10 @@ public class RallyRaceResult implements RaceResult {
         return raceResults.get(driver);
     }
 
-    /**
-     * Tässä sortataan arvojen perusteella kuskit, ja pistetään parhausjärjestyksessä listaan
-     * Nice and easy
-     * sortedbykey.foreach(x -> do the thing)
-     */
+
     @Override
     public List<Driver> getResults() {
-        List<Driver> results = new ArrayList<>();
-        return new ArrayList<>();
+        return new ArrayList<Driver>(raceResults.keySet());
     }
 
 }
