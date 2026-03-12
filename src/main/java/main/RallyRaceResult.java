@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Stream;
+
 
 public class RallyRaceResult implements RaceResult {
     private String raceName;
@@ -43,6 +43,10 @@ public class RallyRaceResult implements RaceResult {
     }
 
 
+    /**
+     * Metodi palauttaa avaimet raceresults listasta
+     * Tässä ois kyllä mukava jos ne kuskit saatas kerralla kunnon järjestykseen ennenku palautetaan ne
+     */
     @Override
     public List<Driver> getResults() {
         return new ArrayList<Driver>(raceResults.keySet());
