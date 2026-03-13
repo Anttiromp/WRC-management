@@ -35,19 +35,16 @@ public class Main  {
         ChampionshipManager championshipManager2 = ChampionshipManager.getInstance();
 
         System.out.println("\n=== RACE 1 ===");
-        RallyRaceResult race1 = new RallyRaceResult("Jyväskylä", "Finland");
+        RaceResult race1 = new RallyRaceResult("Jyväskylä", "Finland");
         race1.recordResult(kalleRovanpera, 1, 40);
         race1.recordResult(thierryNeuville, 2, 30);
         race1.recordResult(elfynEvans, 3, 20);
         race1.recordResult(ottTanak, 4, 10);
         race1.recordResult(adrienFourmaux, 5, 0);
+        championshipManager.addRaceResult(race1);
+        race1.getResults();
 
-        // TÄllä saa printattua kuskien pisteet
-        // System.out.println("\n=== Print driver standings ===");
-        // Driver[] driverStandings = championshipManager.getDriverStandings();
-        // for (int i = 0; driverStandings.length > i; i++) {
-        //     System.out.printf("Position %d: %s (%s) %d\n", i+1, driverStandings[i].getName(), driverStandings[i].getCountry(), driverStandings[i].getTotalPoints());
-        // }
+
 
     }
 }
