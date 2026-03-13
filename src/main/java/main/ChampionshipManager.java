@@ -45,6 +45,10 @@ public class ChampionshipManager {
         }
     }
 
+    public Driver[] getDriverStandings() {
+        return drivers;
+    }
+
 
     public static int getTotalChampionshipPoints() {
         // Täällä vaan haetaan for race : races -> rallyraceresults.getpoints
