@@ -8,10 +8,10 @@ public class ChampionshipManager {
     private static int totalDrivers = 5;
     private static int totalRaces = 3;
 
+    private int maxDrivers = 5;
+    private int maxRaces = 3;
     private List<Driver> drivers;
     private List <RaceResult> races;
-    private int driverIndex = 0;
-    private int raceIndex = 0;
     
 
     private ChampionshipManager() {
@@ -38,9 +38,8 @@ public class ChampionshipManager {
             return;
         }
 
-        if (drivers.size() < driverIndex) {
+        if (drivers.size() < maxDrivers) {
             drivers.add(driver);
-            driverIndex++;
             System.out.println("Driver: " + driver.getName() + " registered.");
         } else {
             System.out.println("Driver registery full.");
@@ -49,7 +48,7 @@ public class ChampionshipManager {
 
     // HOX, tämä oli rallyRaceResult UML:SSä
     public void addRaceResult(RaceResult result) {
-        if (races.size() < raceIndex) {
+        if (races.size() < maxRaces) {
             races.add(result);
         } else {
             System.out.println("All races held");
