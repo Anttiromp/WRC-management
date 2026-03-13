@@ -1,22 +1,24 @@
 package main;
 
-import java.util.ArrayList;
-import java.util.List;
+
+
 
 public class ChampionshipManager {
-    private List<Driver> drivers = new ArrayList<>();
-    private List<RallyRaceResult> races = new ArrayList<>();
-    private static int totalDrivers;
-    private static int totalRaces;
+    private static ChampionshipManager instance;
+    private static int totalDrivers = 5;
+    private static int totalRaces = 3;
 
+    private Driver[] drivers;
+    private RallyRaceResult[] races;
+    
 
-    // Needs a constructor
-
-
-
-    public void registerDriver(Driver driver) {
-        drivers.add(driver);
+    private ChampionshipManager() {
+        this.drivers = new Driver[totalDrivers];
+        this.races = new RallyRaceResult[totalRaces];
     }
+
+
+
 
     public static int getTotalChampionshipPoints() {
         // Täällä vaan haetaan for race : races -> rallyraceresults.getpoints
