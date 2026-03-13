@@ -37,6 +37,14 @@ public class ChampionshipManager {
         }
     }
 
+    public void addRaceResult(RallyRaceResult result) {
+        if (races.length > raceIndex) {
+            races[raceIndex] = result;
+        } else {
+            System.out.println("All races held");
+        }
+    }
+
 
     public static int getTotalChampionshipPoints() {
         // Täällä vaan haetaan for race : races -> rallyraceresults.getpoints
