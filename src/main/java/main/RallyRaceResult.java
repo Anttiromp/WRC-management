@@ -24,9 +24,7 @@ public class RallyRaceResult implements RaceResult {
     }
 
 
-    /**
-     * Metodi lisää sekä totaalipisteisiin että yksittäiseen kisaan pisteet
-     */
+
     @Override
     public void recordResult(Driver driver, int position, int points) {
         driver.addPoints(points);

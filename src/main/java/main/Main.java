@@ -19,16 +19,18 @@ public class Main  {
         Driver elfynEvans = new Driver("Elfyn Evans", "United Kingdom", carElfynEvans);
         Driver ottTanak = new Driver("Ott Tänak", "Estonia", carOttTanak);
         Driver adrienFourmaux = new Driver("Adrien Fourmaux", "France", carAdrienFourmaux);
-        // Extra driver to test method
-        Driver adrien2Fourmaux = new Driver("Adrien Fourmaux", "France", carAdrienFourmaux);
-
+       
         // Register drivers
         championshipManager.registerDriver(kalleRovanpera);
         championshipManager.registerDriver(thierryNeuville);
         championshipManager.registerDriver(elfynEvans);
         championshipManager.registerDriver(ottTanak);
         championshipManager.registerDriver(adrienFourmaux);
+
+        // Test for: Driver capasity & duplicate driver registry
+        Driver adrien2Fourmaux = new Driver("Adrien Fourmaux", "France", carAdrienFourmaux);
         championshipManager.registerDriver(adrien2Fourmaux);
+        championshipManager.registerDriver(kalleRovanpera);
     }
 }
 

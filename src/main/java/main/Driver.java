@@ -13,7 +13,6 @@ public class Driver {
         this.totalPoints = 0;
     }
 
-
     public String getName() {
         return this.name;
     }

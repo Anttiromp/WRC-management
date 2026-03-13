@@ -1,7 +1,6 @@
 package main;
 
-
-
+import java.util.Arrays;
 
 public class ChampionshipManager {
     private static ChampionshipManager instance;
@@ -26,12 +25,20 @@ public class ChampionshipManager {
         return instance;
     }
 
-    // TODO: check if driver already exists
+    /**
+     * Metodi kattoo eka jos kuski on jo olemassa, ja sen jälkeen onko listalla tilaa, jos kaikki natsaa ni lisätään listaan
+     * @param driver Se äijä ketä laitetaan listoille
+     */
     public void registerDriver(Driver driver) {
+        if (Arrays.asList(drivers).contains(driver)) {
+            System.out.println("Driver: " + driver.getName() + " already registered.");
+            return;
+        }
+
         if (drivers.length > driverIndex) {
             drivers[driverIndex] = driver;
             driverIndex++;
-            System.out.println("Driver registered");
+            System.out.println("Driver: " + driver.getName() + " registered.");
         } else {
             System.out.println("Driver registery full.");
         }
@@ -51,9 +58,10 @@ public class ChampionshipManager {
 
 
     public static int getTotalChampionshipPoints() {
-        // Täällä vaan haetaan for race : races -> rallyraceresults.getpoints
-        // Varmasti voidaan avaimella hakee ne kaikki tähän?
-        // Sit vaan järjestellään
+        int totalChampionshipPoints = 0;
+        
+        
+
         return 1;
     }
 
