@@ -38,7 +38,7 @@ public class ChampionshipManager {
             return;
         }
 
-        if (drivers.size() > driverIndex) {
+        if (drivers.size() < driverIndex) {
             drivers.add(driver);
             driverIndex++;
             System.out.println("Driver: " + driver.getName() + " registered.");
@@ -49,7 +49,7 @@ public class ChampionshipManager {
 
     // HOX, tämä oli rallyRaceResult UML:SSä
     public void addRaceResult(RaceResult result) {
-        if (races.size() > raceIndex) {
+        if (races.size() < raceIndex) {
             races.add(result);
         } else {
             System.out.println("All races held");

@@ -42,7 +42,7 @@ public class Main  {
         race1.recordResult(ottTanak, 4, 10);
         race1.recordResult(adrienFourmaux, 5, 0);
         championshipManager.addRaceResult(race1);
-        race1.getResults();
+        System.out.println(race1.getResults());
 
 
 
