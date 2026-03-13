@@ -42,10 +42,18 @@ public class Main  {
         race1.recordResult(ottTanak, 4, 10);
         race1.recordResult(adrienFourmaux, 5, 0);
         championshipManager.addRaceResult(race1);
-        System.out.println(race1.getResults());
+       // List<Driver> race1Results = race1.getResults();
 
+       // TÄMÄ ON TOIMIVAMPI RATKASU
+        for (int i = 0; i < 5; i++) {
+            System.out.println(race1.getDriverPoints(kalleRovanpera));
+        }
 
+        }
 
     }
-}
+
+
+
+
 
