@@ -17,7 +17,13 @@ public class ChampionshipManager {
         this.races = new RallyRaceResult[totalRaces];
     }
 
+    public static ChampionshipManager getInstance() {
+        if (instance == null) {
+            new ChampionshipManager();
+        } 
+        return instance;
 
+    }
 
 
     public static int getTotalChampionshipPoints() {
