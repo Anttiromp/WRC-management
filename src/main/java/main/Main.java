@@ -1,5 +1,6 @@
 package main;
 
+import java.util.List;
 
 public class Main  {
     public static void main( String[] args ) {
@@ -14,7 +15,7 @@ public class Main  {
         RallyCar carAdrienFourmaux = new GravelCar("Ford", "Fiesta Rally2", 500);
 
         // Create drivers
-        Driver kalleRovanpera = new Driver("Kalle Rovanperä", "Finlad", carKalleRovanpera);
+        Driver kalleRovanpera = new Driver("Kalle Rovanperä", "Finland", carKalleRovanpera);
         Driver thierryNeuville = new Driver("Thierry Neuville", "Belgium", carThierryNeuville);
         Driver elfynEvans = new Driver("Elfyn Evans", "United Kingdom", carElfynEvans);
         Driver ottTanak = new Driver("Ott Tänak", "Estonia", carOttTanak);
@@ -27,18 +28,27 @@ public class Main  {
         championshipManager.registerDriver(ottTanak);
         championshipManager.registerDriver(adrienFourmaux);
 
-        System.out.println("\n=== Test for: too many registrations & duplicate registeration");
+        System.out.println("\n=== Test for: too many registrations, duplicate registeration & duplicate instance of championship manager");
         Driver extraDriver = new Driver("Adrien Fourmaux", "France", carAdrienFourmaux);
         championshipManager.registerDriver(extraDriver);
         championshipManager.registerDriver(kalleRovanpera);
+        ChampionshipManager championshipManager2 = ChampionshipManager.getInstance();
 
-        System.out.println("=== RACE 1 ===");
+        System.out.println("\n=== RACE 1 ===");
         RallyRaceResult race1 = new RallyRaceResult("Jyväskylä", "Finland");
         race1.recordResult(kalleRovanpera, 1, 40);
         race1.recordResult(thierryNeuville, 2, 30);
         race1.recordResult(elfynEvans, 3, 20);
         race1.recordResult(ottTanak, 4, 10);
         race1.recordResult(adrienFourmaux, 5, 0);
+
+        // TÄllä saa printattua kuskien pisteet
+        // System.out.println("\n=== Print driver standings ===");
+        // Driver[] driverStandings = championshipManager.getDriverStandings();
+        // for (int i = 0; driverStandings.length > i; i++) {
+        //     System.out.printf("Position %d: %s (%s) %d\n", i+1, driverStandings[i].getName(), driverStandings[i].getCountry(), driverStandings[i].getTotalPoints());
+        // }
+
     }
 }
 

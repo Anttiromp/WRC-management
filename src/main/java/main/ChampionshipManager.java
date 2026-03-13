@@ -21,7 +21,9 @@ public class ChampionshipManager {
     public static ChampionshipManager getInstance() {
         if (instance == null) {
             instance = new ChampionshipManager();
-        } 
+        } else {
+            System.out.println("Cannot create two separate championship managers.");
+        }
         return instance;
     }
 
@@ -60,8 +62,6 @@ public class ChampionshipManager {
     public static int getTotalChampionshipPoints() {
         int totalChampionshipPoints = 0;
         
-        
-
         return 1;
     }
 
