@@ -20,17 +20,19 @@ public class Main  {
         Driver ottTanak = new Driver("Ott Tänak", "Estonia", carOttTanak);
         Driver adrienFourmaux = new Driver("Adrien Fourmaux", "France", carAdrienFourmaux);
        
-        // Register drivers
+        System.out.println("=== Register drivers ===");
         championshipManager.registerDriver(kalleRovanpera);
         championshipManager.registerDriver(thierryNeuville);
         championshipManager.registerDriver(elfynEvans);
         championshipManager.registerDriver(ottTanak);
         championshipManager.registerDriver(adrienFourmaux);
 
-        // Test for: Driver capasity & duplicate driver registry
-        Driver adrien2Fourmaux = new Driver("Adrien Fourmaux", "France", carAdrienFourmaux);
-        championshipManager.registerDriver(adrien2Fourmaux);
+        System.out.println("\n=== Test for: too many registrations & duplicate registeration");
+        Driver extraDriver = new Driver("Adrien Fourmaux", "France", carAdrienFourmaux);
+        championshipManager.registerDriver(extraDriver);
         championshipManager.registerDriver(kalleRovanpera);
+
+        System.out.println("=== RACE 1 ===");
     }
 }
 
