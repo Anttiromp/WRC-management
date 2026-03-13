@@ -1,7 +1,6 @@
 package main;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class ChampionshipManager {
@@ -10,7 +9,7 @@ public class ChampionshipManager {
     private static int totalRaces = 3;
 
     private List<Driver> drivers;
-    private List <RallyRaceResult> races;
+    private List <RaceResult> races;
     private int driverIndex = 0;
     private int raceIndex = 0;
     
@@ -34,7 +33,7 @@ public class ChampionshipManager {
      * @param driver Se äijä ketä laitetaan listoille
      */
     public void registerDriver(Driver driver) {
-        if (Arrays.asList(drivers).contains(driver)) {
+        if (drivers.contains(driver)) {
             System.out.println("Driver: " + driver.getName() + " already registered.");
             return;
         }
@@ -48,7 +47,8 @@ public class ChampionshipManager {
         }
     }
 
-    public void addRaceResult(RallyRaceResult result) {
+    // HOX, tämä oli rallyRaceResult UML:SSä
+    public void addRaceResult(RaceResult result) {
         if (races.size() > raceIndex) {
             races.add(result);
         } else {
