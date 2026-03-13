@@ -30,7 +30,7 @@ public class RallyRaceResult implements RaceResult {
     @Override
     public void recordResult(Driver driver, int position, int points) {
         driver.addPoints(points);
-        raceResults.put(driver, points);
+        raceResults.put(driver, (driver.getTotalPoints() * 0) + points);
     }
 
     /**
