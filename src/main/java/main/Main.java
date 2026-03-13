@@ -33,6 +33,12 @@ public class Main  {
         championshipManager.registerDriver(kalleRovanpera);
 
         System.out.println("=== RACE 1 ===");
+        RallyRaceResult race1 = new RallyRaceResult("Jyväskylä", "Finland");
+        race1.recordResult(kalleRovanpera, 1, 40);
+        race1.recordResult(thierryNeuville, 2, 30);
+        race1.recordResult(elfynEvans, 3, 20);
+        race1.recordResult(ottTanak, 4, 10);
+        race1.recordResult(adrienFourmaux, 5, 0);
     }
 }
 
