@@ -10,6 +10,8 @@ public class ChampionshipManager {
 
     private Driver[] drivers;
     private RallyRaceResult[] races;
+    private int driverIndex = 0;
+    private int raceIndex = 0;
     
 
     private ChampionshipManager() {
@@ -19,10 +21,20 @@ public class ChampionshipManager {
 
     public static ChampionshipManager getInstance() {
         if (instance == null) {
-            new ChampionshipManager();
+            instance = new ChampionshipManager();
         } 
         return instance;
+    }
 
+    // TODO: check if driver already exists
+    public void registerDriver(Driver driver) {
+        if (drivers.length > driverIndex) {
+            drivers[driverIndex] = driver;
+            driverIndex++;
+            System.out.println("Driver registered");
+        } else {
+            System.out.println("Driver registery full.");
+        }
     }
 
 

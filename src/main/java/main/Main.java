@@ -3,8 +3,8 @@ package main;
 
 public class Main  {
     public static void main( String[] args ) {
-        ChampionshipManager championshipManager = new ChampionshipManager();
-
+        
+        ChampionshipManager championshipManager = ChampionshipManager.getInstance();
         // Create cars for the drivers
         // Jos kaikki autot on vaan gravelia niin miten demotaan laskuri?
         RallyCar carKalleRovanpera = new GravelCar("Toyota", "GR Yaris Rally1", 500);
@@ -19,6 +19,8 @@ public class Main  {
         Driver elfynEvans = new Driver("Elfyn Evans", "United Kingdom", carElfynEvans);
         Driver ottTanak = new Driver("Ott Tänak", "Estonia", carOttTanak);
         Driver adrienFourmaux = new Driver("Adrien Fourmaux", "France", carAdrienFourmaux);
+        // Extra driver to test method
+        Driver adrien2Fourmaux = new Driver("Adrien Fourmaux", "France", carAdrienFourmaux);
 
         // Register drivers
         championshipManager.registerDriver(kalleRovanpera);
@@ -26,6 +28,7 @@ public class Main  {
         championshipManager.registerDriver(elfynEvans);
         championshipManager.registerDriver(ottTanak);
         championshipManager.registerDriver(adrienFourmaux);
+        championshipManager.registerDriver(adrien2Fourmaux);
     }
 }
 

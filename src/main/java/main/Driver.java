@@ -24,6 +24,7 @@ public class Driver {
     public int getTotalPoints() {
         return this.points;
     }
+
     public RallyCar getCar() {
         return this.car;
     }
@@ -31,18 +32,13 @@ public class Driver {
     public void setName(String name) {
         this.name = name;
     }
-
+    
     public void setCar(RallyCar car) {
         this.car = car;
     }
     
-
-    /**
-     * Function adds points for total points tally & updates the points from last race
-     * @param points
-     */
     public void addPoints(int racePoints) {
-        this.points = racePoints;
+        this.points += racePoints;
     }
 
 }
