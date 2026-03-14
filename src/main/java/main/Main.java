@@ -63,6 +63,7 @@ public class Main  {
         System.out.println("Testataan get leading ja get all points");
         System.out.println("Pitäis olla edelleen 300 : " + championshipManager.getTotalChampionshipPoints());
         System.out.println("Pitäis olla thierry neuville: " + championshipManager.getLeadingDriver().getName());
+        System.out.println("TOIMII");
     }
 }
 
