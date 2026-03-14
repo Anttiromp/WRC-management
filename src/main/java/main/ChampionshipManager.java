@@ -55,16 +55,8 @@ public class ChampionshipManager {
         }
     }
 
-    // TÄMÄ PALAUTTAA CHAMPIONship TILANTEEN
+    // Kaiken logiikan mukaan tämän pitäis palauttaa ne oikein nyt kun totalpisteet on siellä kuskilla
     public List<Driver> getDriverStandings() {
-        List<Driver> driverStandings = new ArrayList<>();
-        // LOOppi mis haetaan kisatulokset
-            // Sisänen looppi mis haetaan kuskin pisteet tästä kisasta
-            // Lisää driverstandings listaan
-        // Lopuks järjestellään kuskit suuruusjärjestykseen
-        for (RaceResult result : races) {
-            result.getResults(); // Tämä on lista kuskeja
-        }
         return drivers;
     }
 
