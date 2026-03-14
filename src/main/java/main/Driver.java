@@ -36,8 +36,8 @@ public class Driver {
         this.car = car;
     }
     
-    public void setPoints(int racePoints) {
-        this.points = racePoints;
+    public void addPoints(int racePoints) {
+        this.points += racePoints;
     }
 
 }

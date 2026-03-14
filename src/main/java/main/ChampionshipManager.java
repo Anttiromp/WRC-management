@@ -46,8 +46,7 @@ public class ChampionshipManager {
         }
     }
 
-    // HOX, tämä oli rallyRaceResult UML:SSä
-    // Pitääköhän tälle tehdä nyt jotain koska meillä on getResult siellä rallyraceresult scriptissä?
+
     public void addRaceResult(RaceResult result) {
         if (races.size() < maxRaces) {
             races.add(result);
@@ -58,8 +57,13 @@ public class ChampionshipManager {
 
     // TÄMÄ PALAUTTAA CHAMPIONship TILANTEEN
     public List<Driver> getDriverStandings() {
+        List<Driver> driverStandings = new ArrayList<>();
+        // LOOppi mis haetaan kisatulokset
+            // Sisänen looppi mis haetaan kuskin pisteet tästä kisasta
+            // Lisää driverstandings listaan
+        // Lopuks järjestellään kuskit suuruusjärjestykseen
         for (RaceResult result : races) {
-            result.getResults();
+            result.getResults(); // Tämä on lista kuskeja
         }
         return drivers;
     }
@@ -68,7 +72,7 @@ public class ChampionshipManager {
     public static int getTotalChampionshipPoints() {
         int totalChampionshipPoints = 0;
         
-        return 1;
+        return totalChampionshipPoints;
     }
 
 }
