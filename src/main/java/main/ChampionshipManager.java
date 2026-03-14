@@ -67,8 +67,11 @@ public class ChampionshipManager {
 
     // TÄMÄ PALAUTTAA KAIKKI JAETUT PISTEET
     public static int getTotalChampionshipPoints() {
+        ChampionshipManager championship = getInstance();
         int totalChampionshipPoints = 0;
-        
+        for (Driver driver : championship.drivers) {
+            totalChampionshipPoints += driver.getPoints();
+        }
         return totalChampionshipPoints;
     }
 

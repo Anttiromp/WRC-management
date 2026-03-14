@@ -59,7 +59,9 @@ public class Main  {
         for (int i = 0; i < driverStandings.size(); i++) {
             System.out.printf("Position %d: %s (%d points)\n", i+1, driverStandings.get(i).getName(), driverStandings.get(i).getPoints());
             }
-
+        
+        int points = championshipManager.getTotalChampionshipPoints();
+        System.out.println("Total points should be 300 " + points);
         }
 
     }
