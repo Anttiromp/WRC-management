@@ -47,6 +47,7 @@ public class Main  {
        // TÄMÄ ON TOIMIVAMPI RATKASU
         for (int i = 0; i < 5; i++) {
             System.out.println(race1.getDriverPoints(kalleRovanpera));
+            System.out.println(championshipManager.getDriverStandings());
         }
 
         }

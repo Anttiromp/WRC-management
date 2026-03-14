@@ -3,14 +3,14 @@ package main;
 public class Driver {
     private String name;
     private String country;
-    private int totalPoints;
+    private int points;
     private RallyCar car;
 
     public Driver(String name, String country, RallyCar car) {
         this.name = name;
         this.country = country;
         this.car = car;
-        this.totalPoints = 0;
+        this.points = 0;
     }
 
     public String getName() {
@@ -20,8 +20,8 @@ public class Driver {
         return this.country;
     }
 
-    public int getTotalPoints() {
-        return this.totalPoints;
+    public int getPoints() {
+        return this.points;
     }
 
     public RallyCar getCar() {
@@ -36,8 +36,8 @@ public class Driver {
         this.car = car;
     }
     
-    public void addPoints(int racePoints) {
-        this.totalPoints += racePoints;
+    public void setPoints(int racePoints) {
+        this.points = racePoints;
     }
 
 }

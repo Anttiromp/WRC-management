@@ -44,7 +44,7 @@ public class RallyRaceResult implements RaceResult {
     /**
      * Metodi palauttaa avaimet raceresults listasta
      * Tässä ois kyllä mukava jos ne kuskit saatas kerralla kunnon järjestykseen ennenku palautetaan ne
-     */
+     */ 
     @Override
     public List<Driver> getResults() {
         return new ArrayList<Driver>(raceResults.keySet());
