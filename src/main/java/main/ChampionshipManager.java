@@ -65,14 +65,22 @@ public class ChampionshipManager {
         return driverStandings;
     }
 
-    // TÄMÄ PALAUTTAA KAIKKI JAETUT PISTEET
+    /**
+     * Method creates an instance of championship manager, and then loops through drivers and adds the points to the total tally
+     * @return all the points from championship
+     */
     public static int getTotalChampionshipPoints() {
-        ChampionshipManager championship = getInstance();
+ //       ChampionshipManager championship = getInstance();
         int totalChampionshipPoints = 0;
-        for (Driver driver : championship.drivers) {
+        for (Driver driver : getInstance().drivers) {
             totalChampionshipPoints += driver.getPoints();
         }
         return totalChampionshipPoints;
+    }
+
+    public static Driver getLeadingDriver() {
+        List<Driver> driverStandings = getInstance().getDriverStandings();
+        return driverStandings.get(0);
     }
 
 }
