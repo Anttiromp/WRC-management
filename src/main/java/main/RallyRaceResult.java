@@ -1,8 +1,6 @@
 package main;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 
@@ -24,10 +22,9 @@ public class RallyRaceResult implements RaceResult {
     }
 
 
-
     @Override
     public void recordResult(Driver driver, int position, int points) {
-        driver.setPoints(points);
+        driver.addPoints(points);
         raceResults.put(driver, points);
     }
 
@@ -38,16 +35,6 @@ public class RallyRaceResult implements RaceResult {
     @Override
     public int getDriverPoints(Driver driver) {
         return this.raceResults.get(driver);
-    }
-
-
-    /**
-     * Metodi palauttaa avaimet raceresults listasta
-     * Tässä ois kyllä mukava jos ne kuskit saatas kerralla kunnon järjestykseen ennenku palautetaan ne
-     */ 
-    @Override
-    public List<Driver> getResults() {
-        return new ArrayList<Driver>(raceResults.keySet());
     }
 
 }
