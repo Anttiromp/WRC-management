@@ -57,7 +57,9 @@ public class ChampionshipManager {
 
     // Kaiken logiikan mukaan tämän pitäis palauttaa ne oikein nyt kun totalpisteet on siellä kuskilla
     public List<Driver> getDriverStandings() {
-        return drivers;
+        List<Driver> driverStandings = drivers;
+        driverStandings.sort((d1, d2) -> d2.getPoints() - d1.getPoints());
+        return driverStandings;
     }
 
     // TÄMÄ PALAUTTAA KAIKKI JAETUT PISTEET
