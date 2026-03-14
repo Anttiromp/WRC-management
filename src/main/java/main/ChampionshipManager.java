@@ -55,7 +55,10 @@ public class ChampionshipManager {
         }
     }
 
-    // Kaiken logiikan mukaan tämän pitäis palauttaa ne oikein nyt kun totalpisteet on siellä kuskilla
+    /**
+     * Method copies current list into a new, and sorts drivers by their points
+     * @return sorted driver list by points (descending order)
+     */
     public List<Driver> getDriverStandings() {
         List<Driver> driverStandings = drivers;
         driverStandings.sort((d1, d2) -> d2.getPoints() - d1.getPoints());

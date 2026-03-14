@@ -1,6 +1,8 @@
 package main;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -37,4 +39,8 @@ public class RallyRaceResult implements RaceResult {
         return this.raceResults.get(driver);
     }
 
+    @Override
+    public List<Driver> getResults() {
+        return new ArrayList<Driver>(raceResults.keySet());
+    }
 }
