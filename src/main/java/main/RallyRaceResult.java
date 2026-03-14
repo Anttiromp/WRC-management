@@ -24,11 +24,10 @@ public class RallyRaceResult implements RaceResult {
     }
 
 
-
     @Override
     public void recordResult(Driver driver, int position, int points) {
         driver.addPoints(points);
-        raceResults.put(driver, (driver.getTotalPoints() * 0) + points);
+        raceResults.put(driver, points);
     }
 
     /**
@@ -40,14 +39,8 @@ public class RallyRaceResult implements RaceResult {
         return this.raceResults.get(driver);
     }
 
-
-    /**
-     * Metodi palauttaa avaimet raceresults listasta
-     * Tässä ois kyllä mukava jos ne kuskit saatas kerralla kunnon järjestykseen ennenku palautetaan ne
-     */ 
     @Override
     public List<Driver> getResults() {
         return new ArrayList<Driver>(raceResults.keySet());
     }
-
 }

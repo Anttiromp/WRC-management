@@ -46,8 +46,7 @@ public class ChampionshipManager {
         }
     }
 
-    // HOX, tämä oli rallyRaceResult UML:SSä
-    // Pitääköhän tälle tehdä nyt jotain koska meillä on getResult siellä rallyraceresult scriptissä?
+
     public void addRaceResult(RaceResult result) {
         if (races.size() < maxRaces) {
             races.add(result);
@@ -56,19 +55,32 @@ public class ChampionshipManager {
         }
     }
 
-    // TÄMÄ PALAUTTAA CHAMPIONship TILANTEEN
+    /**
+     * Method copies current list into a new, and sorts drivers by their points
+     * @return sorted driver list by points (descending order)
+     */
     public List<Driver> getDriverStandings() {
-        for (RaceResult result : races) {
-            result.getResults();
-        }
-        return drivers;
+        List<Driver> driverStandings = drivers;
+        driverStandings.sort((d1, d2) -> d2.getPoints() - d1.getPoints());
+        return driverStandings;
     }
 
-    // TÄMÄ PALAUTTAA KAIKKI JAETUT PISTEET
+    /**
+     * Method creates an instance of championship manager, and then loops through drivers and adds the points to the total tally
+     * @return all the points from championship
+     */
     public static int getTotalChampionshipPoints() {
+ //       ChampionshipManager championship = getInstance();
         int totalChampionshipPoints = 0;
-        
-        return 1;
+        for (Driver driver : getInstance().drivers) {
+            totalChampionshipPoints += driver.getPoints();
+        }
+        return totalChampionshipPoints;
+    }
+
+    public static Driver getLeadingDriver() {
+        List<Driver> driverStandings = getInstance().getDriverStandings();
+        return driverStandings.get(0);
     }
 
 }

@@ -42,17 +42,29 @@ public class Main  {
         race1.recordResult(ottTanak, 4, 10);
         race1.recordResult(adrienFourmaux, 5, 0);
         championshipManager.addRaceResult(race1);
+
+
+        RaceResult race2 = new RallyRaceResult("Jyväskylä", "Finland");
+        race2.recordResult(kalleRovanpera, 1, 40);
+        race2.recordResult(thierryNeuville, 2, 130);
+        race2.recordResult(elfynEvans, 3, 20);
+        race2.recordResult(ottTanak, 4, 10);
+        race2.recordResult(adrienFourmaux, 5, 0);
+        championshipManager.addRaceResult(race2);
        // List<Driver> race1Results = race1.getResults();
 
-       // TÄMÄ ON TOIMIVAMPI RATKASU
-        for (int i = 0; i < 5; i++) {
-            System.out.println(race1.getDriverPoints(kalleRovanpera));
-            System.out.println(championshipManager.getDriverStandings());
-        }
+       // Kaiken logiikan mukaan nyt ois järjestyksessä pisteet
+        List<Driver> driverStandings = championshipManager.getDriverStandings();
 
-        }
+        for (int i = 0; i < driverStandings.size(); i++) {
+            System.out.printf("Position %d: %s (%d points)\n", i+1, driverStandings.get(i).getName(), driverStandings.get(i).getPoints());
+            }
 
+        System.out.println("Testataan get leading ja get all points");
+        System.out.println("Pitäis olla edelleen 300 : " + championshipManager.getTotalChampionshipPoints());
+        System.out.println("Pitäis olla thierry neuville: " + championshipManager.getLeadingDriver().getName());
     }
+}
 
 
 
