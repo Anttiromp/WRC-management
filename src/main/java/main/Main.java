@@ -2,72 +2,107 @@ package main;
 
 import java.util.List;
 
-public class Main  {
-    public static void main( String[] args ) {
-        
-        ChampionshipManager championshipManager = ChampionshipManager.getInstance();
-        // Create cars for the drivers
-        // Jos kaikki autot on vaan gravelia niin miten demotaan laskuri?
-        RallyCar carKalleRovanpera = new GravelCar("Toyota", "GR Yaris Rally1", 500);
-        RallyCar carThierryNeuville = new GravelCar("Hyndai", "i20 N Rally1", 500);
-        RallyCar carElfynEvans = new GravelCar("Toyota", "GR Yaris Rally1", 500);
-        RallyCar carOttTanak = new GravelCar("Ford", "Puma Rally1", 500);
-        RallyCar carAdrienFourmaux = new GravelCar("Ford", "Fiesta Rally2", 500);
+public class Main {
+    public static void main(String[] args) {
+        ChampionshipManager manager = ChampionshipManager.getInstance();
+
+        // Create cars
+        RallyCar toyotaGravel = new GravelCar("Toyota", "GR Yaris Rally1", 380);
+        RallyCar hyundaiGravel = new GravelCar("Hyundai", "i20 N Rally1", 375);
+        RallyCar fordGravel = new GravelCar("Ford", "Puma Rally1", 370);
+        RallyCar toyotaAsphalt = new AsphaltCar("Toyota", "GR Yaris Rally1", 380);
+        RallyCar hyundaiAsphalt = new AsphaltCar("Hyundai", "i20 N Rally1", 375);
 
         // Create drivers
-        Driver kalleRovanpera = new Driver("Kalle Rovanperä", "Finland", carKalleRovanpera);
-        Driver thierryNeuville = new Driver("Thierry Neuville", "Belgium", carThierryNeuville);
-        Driver elfynEvans = new Driver("Elfyn Evans", "United Kingdom", carElfynEvans);
-        Driver ottTanak = new Driver("Ott Tänak", "Estonia", carOttTanak);
-        Driver adrienFourmaux = new Driver("Adrien Fourmaux", "France", carAdrienFourmaux);
-       
-        System.out.println("=== Register drivers ===");
-        championshipManager.registerDriver(kalleRovanpera);
-        championshipManager.registerDriver(thierryNeuville);
-        championshipManager.registerDriver(elfynEvans);
-        championshipManager.registerDriver(ottTanak);
-        championshipManager.registerDriver(adrienFourmaux);
+        Driver rovanpera = new Driver("Kalle Rovanperä", "Finland", toyotaGravel);
+        Driver neuville = new Driver("Thierry Neuville", "Belgium", hyundaiAsphalt);
+        Driver evans = new Driver("Elfyn Evans", "United Kingdom", toyotaAsphalt);
+        Driver tanak = new Driver("Ott Tänak", "Estonia", hyundaiGravel);
+        Driver fourmaux = new Driver("Adrien Fourmaux", "France", fordGravel);
 
-        System.out.println("\n=== Test for: too many registrations, duplicate registeration & duplicate instance of championship manager");
-        Driver extraDriver = new Driver("Adrien Fourmaux", "France", carAdrienFourmaux);
-        championshipManager.registerDriver(extraDriver);
-        championshipManager.registerDriver(kalleRovanpera);
-        ChampionshipManager championshipManager2 = ChampionshipManager.getInstance();
+        // Register drivers
+        manager.registerDriver(rovanpera);
+        manager.registerDriver(neuville);
+        manager.registerDriver(evans);
+        manager.registerDriver(tanak);
+        manager.registerDriver(fourmaux);
 
-        System.out.println("\n=== RACE 1 ===");
-        RaceResult race1 = new RallyRaceResult("Jyväskylä", "Finland");
-        race1.recordResult(kalleRovanpera, 1, 40);
-        race1.recordResult(thierryNeuville, 2, 30);
-        race1.recordResult(elfynEvans, 3, 20);
-        race1.recordResult(ottTanak, 4, 10);
-        race1.recordResult(adrienFourmaux, 5, 0);
-        championshipManager.addRaceResult(race1);
+        // -----------------------------
+        // Race 1: Rally Monte Carlo
+        // -----------------------------
+        RallyRaceResult monteCarlo = new RallyRaceResult("Rally Monte Carlo", "Monaco");
+        monteCarlo.recordResult(neuville, 1, 25);
+        monteCarlo.recordResult(evans, 2, 18);
+        monteCarlo.recordResult(rovanpera, 3, 15);
+        monteCarlo.recordResult(tanak, 4, 12);
+        monteCarlo.recordResult(fourmaux, 5, 10);
+
+        manager.addRaceResult(monteCarlo);
+
+        // -----------------------------
+        // Race 2: Rally Sweden
+        // -----------------------------
+        RallyRaceResult sweden = new RallyRaceResult("Rally Sweden", "Sweden");
+        sweden.recordResult(rovanpera, 1, 25);
+        sweden.recordResult(tanak, 2, 18);
+        sweden.recordResult(evans, 3, 15);
+        sweden.recordResult(neuville, 4, 12);
+        sweden.recordResult(fourmaux, 5, 10);
+
+        manager.addRaceResult(sweden);
+
+        // -----------------------------
+        // Race 3: Safari Rally Kenya
+        // -----------------------------
+        RallyRaceResult kenya = new RallyRaceResult("Safari Rally Kenya", "Kenya");
+        kenya.recordResult(tanak, 1, 25);
+        kenya.recordResult(rovanpera, 2, 18);
+        kenya.recordResult(fourmaux, 3, 15);
+        kenya.recordResult(evans, 4, 12);
+        kenya.recordResult(neuville, 5, 10);
+
+        manager.addRaceResult(kenya);
+
+        // -----------------------------
+        // Print race summaries
+        // -----------------------------
+        System.out.println("=== RACE RESULTS ===");
+        printRaceResult(monteCarlo);
+        printRaceResult(sweden);
+        printRaceResult(kenya);
+
+        // -----------------------------
+        // Print championship standings
+        // -----------------------------
+        System.out.println("\n=== CHAMPIONSHIP STANDINGS ===");
+        List<Driver> standings = manager.getDriverStandings();
+        for (int i = 0; i < standings.size(); i++) {
+            Driver d = standings.get(i);
+            System.out.println((i + 1) + ". " + d.getName() + " (" + d.getCountry() + ") - " + d.getPoints() + " pts");
+        }
+
+        // -----------------------------
+        // Print statistics
+        // -----------------------------
+        System.out.println("\n=== CHAMPIONSHIP STATISTICS ===");
+        System.out.println("Leading driver: " + manager.getLeadingDriver().getName());
+        System.out.println("Total championship points: " + manager.getTotalChampionshipPoints());
+        System.out.println("Average points per driver: "
+                + ChampionshipStatistics.calculateAveragePointsPerDriver(standings));
+        System.out.println("Most successful country: "
+                + ChampionshipStatistics.findMostSuccessfullCountry(standings));
+
+        // If your new method takes List<RaceResult>
+        System.out.println("Total races held: "
+                + ChampionshipStatistics.getTotalRacesHeld(List.of(monteCarlo, sweden, kenya)));
 
 
-        RaceResult race2 = new RallyRaceResult("Jyväskylä", "Finland");
-        race2.recordResult(kalleRovanpera, 1, 40);
-        race2.recordResult(thierryNeuville, 2, 130);
-        race2.recordResult(elfynEvans, 3, 20);
-        race2.recordResult(ottTanak, 4, 10);
-        race2.recordResult(adrienFourmaux, 5, 0);
-        championshipManager.addRaceResult(race2);
-       // List<Driver> race1Results = race1.getResults();
+    }
 
-       // Kaiken logiikan mukaan nyt ois järjestyksessä pisteet
-        List<Driver> driverStandings = championshipManager.getDriverStandings();
-
-        for (int i = 0; i < driverStandings.size(); i++) {
-            System.out.printf("Position %d: %s (%d points)\n", i+1, driverStandings.get(i).getName(), driverStandings.get(i).getPoints());
-            }
-
-        System.out.println("Testataan get leading ja get all points");
-        System.out.println("Pitäis olla edelleen 300 : " + championshipManager.getTotalChampionshipPoints());
-        System.out.println("Pitäis olla thierry neuville: " + championshipManager.getLeadingDriver().getName());
-        System.out.println("TOIMII");
+    private static void printRaceResult(RallyRaceResult race) {
+        System.out.println("\n" + race.getRaceName() + " - " + race.getLocation());
+        for (Driver driver : race.getResults()) {
+            System.out.println(driver.getName() + " -> " + race.getDriverPoints(driver) + " pts");
+        }
     }
 }
-
-
-
-
-

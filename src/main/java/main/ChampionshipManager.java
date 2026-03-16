@@ -68,14 +68,14 @@ public class ChampionshipManager {
      */
     public static int getTotalChampionshipPoints() {
         int totalChampionshipPoints = 0;
-        for (Driver driver : getInstance().drivers) {
+        for (Driver driver : instance.drivers) {
             totalChampionshipPoints += driver.getPoints();
         }
         return totalChampionshipPoints;
     }
 
     public static Driver getLeadingDriver() {
-        List<Driver> driverStandings = getInstance().getDriverStandings();
+        List<Driver> driverStandings = instance.getDriverStandings();
         return driverStandings.get(0);
     }
 

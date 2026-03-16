@@ -8,7 +8,7 @@ public class ChampionshipStatistics {
             if (drivers == null) {
                 return 0.0;
             }
-            int totalPoints = 0;
+            double totalPoints = 0;
             for (Driver driver : drivers) {
                 totalPoints += driver.getPoints();
             }

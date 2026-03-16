@@ -30,10 +30,7 @@ public class RallyRaceResult implements RaceResult {
         raceResults.put(driver, points);
     }
 
-    /**
-     * Tässä haetaan avaimella kuskia ja sit palautetaan ne pisteet mitä sil oli
-     * TODO muokkaa siten et jos ei löydy kuskia niin sit palautetaan DNF tai nolla
-     */
+
     @Override
     public int getDriverPoints(Driver driver) {
         return this.raceResults.get(driver);
@@ -43,4 +40,6 @@ public class RallyRaceResult implements RaceResult {
     public List<Driver> getResults() {
         return new ArrayList<Driver>(raceResults.keySet());
     }
+
+
 }
