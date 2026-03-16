@@ -79,4 +79,10 @@ public class ChampionshipManager {
         return driverStandings.get(0);
     }
 
+    public List<RaceResult> getRaces() {
+    return races;
+}
+
+
+
 }
