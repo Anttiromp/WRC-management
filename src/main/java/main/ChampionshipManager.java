@@ -28,10 +28,7 @@ public class ChampionshipManager {
         return instance;
     }
 
-    /**
-     * Metodi kattoo eka jos kuski on jo olemassa, ja sen jälkeen onko listalla tilaa, jos kaikki natsaa ni lisätään listaan
-     * @param driver Se äijä ketä laitetaan listoille
-     */
+
     public void registerDriver(Driver driver) {
         if (drivers.contains(driver)) {
             System.out.println("Driver: " + driver.getName() + " already registered.");
@@ -70,7 +67,6 @@ public class ChampionshipManager {
      * @return all the points from championship
      */
     public static int getTotalChampionshipPoints() {
- //       ChampionshipManager championship = getInstance();
         int totalChampionshipPoints = 0;
         for (Driver driver : getInstance().drivers) {
             totalChampionshipPoints += driver.getPoints();
