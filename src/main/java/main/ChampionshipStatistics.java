@@ -14,6 +14,7 @@ public class ChampionshipStatistics {
             }
         return totalPoints/drivers.size();
     }
+
     public static String findMostSuccessfullCountry(List<Driver> drivers) {
         Driver driver = drivers.get(0);
         for (Driver d : drivers) {
@@ -24,11 +25,12 @@ public class ChampionshipStatistics {
         return driver.getCountry();
     }
 
-    public static int getTotalRacesHeld() {
-        return 1;
+    public static int getTotalRacesHeld(List<RallyRaceResult> races) {
+    if (races == null) {
+        return 0;
     }
+    return races.size();
+}
 
 
-    
-    
 }
