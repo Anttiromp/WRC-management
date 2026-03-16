@@ -27,6 +27,12 @@ public class Main {
         manager.registerDriver(tanak);
         manager.registerDriver(fourmaux);
 
+        // Test: Register too many drivers, duplicate driver registration & secondary instance of manager
+        Driver extra = new Driver("Adrien Fourmaux", "France", fordGravel);
+        manager.registerDriver(extra);
+        manager.registerDriver(fourmaux);
+        ChampionshipManager manager2 = ChampionshipManager.getInstance();
+
 
         // Race 1: Rally Monte Carlo
         RallyRaceResult monteCarlo = new RallyRaceResult("Rally Monte Carlo", "Monaco");
@@ -87,6 +93,8 @@ public class Main {
         System.out.println("Total races held: "
                 + ChampionshipStatistics.getTotalRacesHeld(List.of(monteCarlo, sweden, kenya)));
     }
+
+    
 
     private static void printRaceResult(RallyRaceResult race) {
         System.out.println("\n" + race.getRaceName() + " - " + race.getLocation());
