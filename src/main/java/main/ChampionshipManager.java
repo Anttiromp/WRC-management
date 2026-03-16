@@ -28,7 +28,13 @@ public class ChampionshipManager {
         return instance;
     }
 
-
+    /** Registers a driver to the championship.
+ * The driver will be added to the list of participants if:
+ * - the maximum number of drivers has not been reached
+ * - the driver has not already been registered.
+ * @param driver the driver to register
+ * @return true if the driver was successfully registered, false otherwise
+ */
     public void registerDriver(Driver driver) {
         if (drivers.contains(driver)) {
             System.out.println("Driver: " + driver.getName() + " already registered.");
@@ -44,6 +50,11 @@ public class ChampionshipManager {
     }
 
 
+    /** Adds the result of a completed rally race to the championship.
+ * The race result will be stored if the maximum number of races has not been exceeded.
+ * @param raceResult the race result to add
+ * @return true if the race result was successfully added, false otherwise
+ */
     public void addRaceResult(RaceResult result) {
         if (races.size() < maxRaces) {
             races.add(result);
@@ -52,20 +63,21 @@ public class ChampionshipManager {
         }
     }
 
-    /**
-     * Method copies current list into a new, and sorts drivers by their points
-     * @return sorted driver list by points (descending order)
-     */
+
+    /** Returns the current championship standings.
+ * Drivers are sorted in descending order based on their total points.
+ * @return a list of drivers ordered by championship points
+ */
     public List<Driver> getDriverStandings() {
         List<Driver> driverStandings = drivers;
         driverStandings.sort((d1, d2) -> d2.getPoints() - d1.getPoints());
         return driverStandings;
     }
 
-    /**
-     * Method creates an instance of championship manager, and then loops through drivers and adds the points to the total tally
-     * @return all the points from championship
-     */
+
+    /** Calculates the total number of championship points scored by all drivers combined.
+ * @return the sum of all driver points in the championship
+ */
     public static int getTotalChampionshipPoints() {
         int totalChampionshipPoints = 0;
         for (Driver driver : instance.drivers) {
@@ -82,7 +94,5 @@ public class ChampionshipManager {
     public List<RaceResult> getRaces() {
     return races;
 }
-
-
 
 }

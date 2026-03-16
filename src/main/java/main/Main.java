@@ -27,9 +27,8 @@ public class Main {
         manager.registerDriver(tanak);
         manager.registerDriver(fourmaux);
 
-        // -----------------------------
+
         // Race 1: Rally Monte Carlo
-        // -----------------------------
         RallyRaceResult monteCarlo = new RallyRaceResult("Rally Monte Carlo", "Monaco");
         monteCarlo.recordResult(neuville, 1, 25);
         monteCarlo.recordResult(evans, 2, 18);
@@ -39,9 +38,7 @@ public class Main {
 
         manager.addRaceResult(monteCarlo);
 
-        // -----------------------------
         // Race 2: Rally Sweden
-        // -----------------------------
         RallyRaceResult sweden = new RallyRaceResult("Rally Sweden", "Sweden");
         sweden.recordResult(rovanpera, 1, 25);
         sweden.recordResult(tanak, 2, 18);
@@ -51,9 +48,7 @@ public class Main {
 
         manager.addRaceResult(sweden);
 
-        // -----------------------------
         // Race 3: Safari Rally Kenya
-        // -----------------------------
         RallyRaceResult kenya = new RallyRaceResult("Safari Rally Kenya", "Kenya");
         kenya.recordResult(tanak, 1, 25);
         kenya.recordResult(rovanpera, 2, 18);
@@ -63,17 +58,15 @@ public class Main {
 
         manager.addRaceResult(kenya);
 
-        // -----------------------------
+
         // Print race summaries
-        // -----------------------------
         System.out.println("=== RACE RESULTS ===");
         printRaceResult(monteCarlo);
         printRaceResult(sweden);
         printRaceResult(kenya);
 
-        // -----------------------------
+
         // Print championship standings
-        // -----------------------------
         System.out.println("\n=== CHAMPIONSHIP STANDINGS ===");
         List<Driver> standings = manager.getDriverStandings();
         for (int i = 0; i < standings.size(); i++) {
@@ -81,9 +74,7 @@ public class Main {
             System.out.println((i + 1) + ". " + d.getName() + " (" + d.getCountry() + ") - " + d.getPoints() + " pts");
         }
 
-        // -----------------------------
         // Print statistics
-        // -----------------------------
         System.out.println("\n=== CHAMPIONSHIP STATISTICS ===");
         System.out.println("Leading driver: " + manager.getLeadingDriver().getName());
         System.out.println("Total championship points: " + manager.getTotalChampionshipPoints());
@@ -92,11 +83,9 @@ public class Main {
         System.out.println("Most successful country: "
                 + ChampionshipStatistics.findMostSuccessfullCountry(standings));
 
-        // If your new method takes List<RaceResult>
+
         System.out.println("Total races held: "
                 + ChampionshipStatistics.getTotalRacesHeld(List.of(monteCarlo, sweden, kenya)));
-
-
     }
 
     private static void printRaceResult(RallyRaceResult race) {
